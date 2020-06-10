@@ -22,7 +22,7 @@ export class ImageEditorComponent implements OnInit {
         this.imageChangedEvent = event;
     }
     imageCropped(event: ImageCroppedEvent) {
-        this.imageChangedEvent = event;
+        this.croppedImage = event.base64;
     }
     imageLoaded() {
         // show cropper
@@ -36,10 +36,14 @@ export class ImageEditorComponent implements OnInit {
 
   ngOnInit() {
     this.imageChangedEvent = this.data.event
+    console.log(JSON.stringify(this.data.event))
   }
 
   crop() {
-    this.imageEditor.crop();
+    if (this.showCropper) {
+      this.imageEditor.crop();
+    }
+    this.showCropper = !this.showCropper;
   }
 
 }
