@@ -1,6 +1,14 @@
 <h2 mat-dialog-title>Image Editor</h2>
 <mat-dialog-content>
- <image-cropper
+  <mat-expansion-panel>
+  <mat-expansion-panel-header>
+    <mat-panel-title>
+      This is the expansion title
+    </mat-panel-title>
+  </mat-expansion-panel-header>
+
+</mat-expansion-panel>
+  <image-cropper
     #imageEditor
     [ngClass]="{'hide': !this.showCropper}"
     [imageChangedEvent]="imageChangedEvent"
@@ -11,7 +19,9 @@
     (imageLoaded)="imageLoaded()"
     (cropperReady)="cropperReady()"
     (loadImageFailed)="loadImageFailed()"
-></image-cropper>
+  >
+  </image-cropper>
+
 </mat-dialog-content>
 <mat-dialog-actions>
   <button [ngClass]="{ 'mat-primary': this.showCropper }" mat-button (click)="crop()">Crop</button>

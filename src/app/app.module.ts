@@ -8,9 +8,10 @@ import { ImageEditorComponent } from './components/image-editor/image-editor.com
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule } from '@angular/material/button';
 import { ImageCropperModule } from 'ngx-image-cropper';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 @NgModule({
-  imports:      [ BrowserModule, FormsModule, BrowserAnimationsModule, MatDialogModule, MatButtonModule, ImageCropperModule ],
+  imports:      [ BrowserModule, FormsModule, BrowserAnimationsModule, MatDialogModule, MatButtonModule, ImageCropperModule, MatExpansionModule ],
   declarations: [ AppComponent, ImageEditorComponent ],
   bootstrap:    [ AppComponent ]
 })
