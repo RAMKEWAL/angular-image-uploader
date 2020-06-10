@@ -1,6 +1,6 @@
-import { Component, OnInit, Inject, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Inject, ViewEncapsulation, ViewChild } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { ImageCroppedEvent } from 'ngx-image-cropper';
+import { ImageCroppedEvent, ImageCropperComponent } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-image-editor',
@@ -9,6 +9,7 @@ import { ImageCroppedEvent } from 'ngx-image-cropper';
   encapsulation: ViewEncapsulation.None
 })
 export class ImageEditorComponent implements OnInit {
+  @ViewChild('imageEditor') imageEditor: ImageCropperComponent;
   imageChangedEvent: any = '';
   croppedImage: any = '';
   showCropper: boolean = false;
@@ -21,7 +22,7 @@ export class ImageEditorComponent implements OnInit {
         this.imageChangedEvent = event;
     }
     imageCropped(event: ImageCroppedEvent) {
-        this.croppedImage = event.base64;
+        this.imageChangedEvent = event;
     }
     imageLoaded() {
         // show cropper
@@ -35,6 +36,10 @@ export class ImageEditorComponent implements OnInit {
 
   ngOnInit() {
     this.imageChangedEvent = this.data.event
+  }
+
+  crop() {
+    this.imageEditor.crop();
   }
 
 }

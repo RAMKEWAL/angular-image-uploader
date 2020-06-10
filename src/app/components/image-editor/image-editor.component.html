@@ -1,6 +1,7 @@
 <h2 mat-dialog-title>Image Editor</h2>
 <mat-dialog-content>
  <image-cropper
+    #imageEditor
     [ngClass]="{'hide': !this.showCropper}"
     [imageChangedEvent]="imageChangedEvent"
     [maintainAspectRatio]="true"
@@ -13,7 +14,7 @@
 ></image-cropper>
 </mat-dialog-content>
 <mat-dialog-actions>
-  <button [ngClass]="{ 'active': this.showCropper }" mat-button (click)="this.showCropper = !this.showCropper">Crop</button>
+  <button [ngClass]="{ 'mat-primary': this.showCropper }" mat-button (click)="crop()">Crop</button>
   <!-- The mat-dialog-close directive optionally accepts a value as a result for the dialog. -->
   <button mat-button [mat-dialog-close]="true">Delete</button>
 </mat-dialog-actions>
