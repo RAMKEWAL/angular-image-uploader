@@ -18,7 +18,7 @@ export class AppComponent  {
     const editor = this.dialog.open(
       ImageEditorComponent,
       {
-        data: event
+        data: { event }
       }
     )
   }
