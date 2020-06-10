@@ -3,22 +3,26 @@
   <mat-expansion-panel>
   <mat-expansion-panel-header>
     <mat-panel-title>
-      This is the expansion title
+      Zoom
     </mat-panel-title>
   </mat-expansion-panel-header>
+    <mat-slider min="1" max="2" step="0.1" [(ngModel)]="transform.scale"></mat-slider>
 
 </mat-expansion-panel>
+{{transform | json}}
   <image-cropper
     #imageEditor
     [ngClass]="{'hide': !this.showCropper}"
     [imageChangedEvent]="imageChangedEvent"
     [maintainAspectRatio]="true"
     [aspectRatio]="4 / 3"
+    [onlyScaleDown]="true"
     format="png"
     (imageCropped)="imageCropped($event)"
     (imageLoaded)="imageLoaded()"
     (cropperReady)="cropperReady()"
     (loadImageFailed)="loadImageFailed()"
+    [transform]="transform"
   >
   </image-cropper>
 

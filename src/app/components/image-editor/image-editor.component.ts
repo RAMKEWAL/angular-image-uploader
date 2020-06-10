@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject, ViewEncapsulation, ViewChild } from '@angular/core';
 import {MAT_DIALOG_DATA} from '@angular/material/dialog';
-import { ImageCroppedEvent, ImageCropperComponent } from 'ngx-image-cropper';
+import { ImageCroppedEvent, ImageCropperComponent, ImageTransform } from 'ngx-image-cropper';
 
 @Component({
   selector: 'app-image-editor',
@@ -13,6 +13,12 @@ export class ImageEditorComponent implements OnInit {
   imageChangedEvent: any = '';
   croppedImage: any = '';
   showCropper: boolean = false;
+  transform: ImageTransform = {
+    scale: 1,
+    rotate: 0,
+    flipH: false,
+    flipV: false
+  };
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any
   ) { }
