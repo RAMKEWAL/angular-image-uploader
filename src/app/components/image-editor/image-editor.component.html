@@ -17,12 +17,12 @@
     [maintainAspectRatio]="true"
     [aspectRatio]="4 / 3"
     [onlyScaleDown]="true"
+    [transform]="transform"
     format="png"
     (imageCropped)="imageCropped($event)"
     (imageLoaded)="imageLoaded()"
     (cropperReady)="cropperReady()"
     (loadImageFailed)="loadImageFailed()"
-    [transform]="transform"
   >
   </image-cropper>
 
