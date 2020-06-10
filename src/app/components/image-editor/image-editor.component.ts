@@ -13,6 +13,7 @@ export class ImageEditorComponent implements OnInit {
   imageChangedEvent: any = '';
   croppedImage: any = '';
   showCropper: boolean = false;
+  canvasRotation = 0;
   transform: ImageTransform = {
     scale: 1,
     rotate: 0,
@@ -51,5 +52,32 @@ export class ImageEditorComponent implements OnInit {
     }
     this.showCropper = !this.showCropper;
   }
+
+  zoom(event) {
+        this.transform = {
+            ...this.transform,
+            scale: event.value
+        };
+  }
+
+  rotateLeft() {
+        this.canvasRotation--;
+        this.flipAfterRotate();
+  }
+
+  rotateRight() {
+      this.canvasRotation++;
+      this.flipAfterRotate();
+  }
+
+  private flipAfterRotate() {
+        const flippedH = this.transform.flipH;
+        const flippedV = this.transform.flipV;
+        this.transform = {
+            ...this.transform,
+            flipH: flippedV,
+            flipV: flippedH
+        };
+    }
 
 }
