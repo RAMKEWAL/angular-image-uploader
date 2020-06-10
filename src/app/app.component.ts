@@ -5,7 +5,7 @@ import { ImageEditorComponent } from './components/image-editor/image-editor.com
 @Component({
   selector: 'my-app',
   templateUrl: './app.component.html',
-  styleUrls: [ './app.component.css' ]
+  styleUrls: [ './app.component.scss' ]
 })
 export class AppComponent  {
 
@@ -14,6 +14,7 @@ export class AppComponent  {
   ) {}
 
   openImageEditor(event) {
+    console.log(event);
     const editor = this.dialog.open(
       ImageEditorComponent,
       {

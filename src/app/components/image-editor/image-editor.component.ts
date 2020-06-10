@@ -4,7 +4,7 @@ import {MAT_DIALOG_DATA} from '@angular/material/dialog';
 @Component({
   selector: 'app-image-editor',
   templateUrl: './image-editor.component.html',
-  styleUrls: ['./image-editor.component.css']
+  styleUrls: ['./image-editor.component.scss']
 })
 export class ImageEditorComponent implements OnInit {
 
